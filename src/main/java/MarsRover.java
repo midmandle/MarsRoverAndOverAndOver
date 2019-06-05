@@ -1,11 +1,33 @@
 public class MarsRover {
+
+    private String direction;
+    private String yCoordinate = "0";
+    private String xCoordinate = "0";
+
     public String execute(String instructions) {
         if(instructions.equals("R"))
-            return "0,0,E";
+            return generateLocationString("E");
         if(instructions.equals("RR"))
-            return "0,0,S";
+            return generateLocationString("S");
         if(instructions.equals("RRR"))
-            return "0,0,W";
-        return "0,0,N";
+            return generateLocationString("W");
+        return generateLocationString("N");
+    }
+
+    private String generateLocationString(String newDirection) {
+        direction = newDirection;
+        return currentXCoordinate() + "," + currentYCoordinate() + "," + currentDirection();
+    }
+
+    private String currentDirection() {
+        return direction;
+    }
+
+    private String currentYCoordinate() {
+        return yCoordinate;
+    }
+
+    private String currentXCoordinate() {
+        return xCoordinate;
     }
 }
