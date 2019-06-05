@@ -38,8 +38,17 @@ public class MarsRoverShould {
         assertEquals(expectedOutput, rover.execute(instructions));
     }
 
-    @Test
-    void turn_left() {
-        assertEquals("0,0,W", rover.execute("L"));
+    private static Stream<Arguments> rotateLeftTests() {
+        return Stream.of(
+                Arguments.arguments("L", "0,0,W"),
+                Arguments.arguments("LL", "0,0,S"),
+                Arguments.arguments("LLL", "0,0,E"),
+                Arguments.arguments("LLLL", "0,0,N")
+        );
+    }
+    @ParameterizedTest
+    @MethodSource("rotateLeftTests")
+    void rotates_left(String instructions, String expectedOutput) {
+        assertEquals(expectedOutput, rover.execute(instructions));
     }
 }
