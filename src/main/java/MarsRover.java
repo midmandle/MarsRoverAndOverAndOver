@@ -4,6 +4,8 @@ public class MarsRover {
     private String xCoordinate = "0";
 
     public String execute(String instructions) {
+        if(instructions.equals("L"))
+            return generateLocationString("W");
         if(instructions.equals("R"))
             return generateLocationString("E");
         if(instructions.equals("RR"))

@@ -19,6 +19,11 @@ public class MarsRoverShould {
         rover = new MarsRover();
     }
 
+    @Test
+    void start_at_0_0_N() {
+        assertEquals("0,0,N", rover.execute(""));
+    }
+
     private static Stream<Arguments> rotateRightTests() {
         return Stream.of(
                 Arguments.arguments("R", "0,0,E"),
@@ -34,7 +39,7 @@ public class MarsRoverShould {
     }
 
     @Test
-    void start_at_0_0_N() {
-        assertEquals("0,0,N", rover.execute(""));
+    void turn_left() {
+        assertEquals("0,0,W", rover.execute("L"));
     }
 }
