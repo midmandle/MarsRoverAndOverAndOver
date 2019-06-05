@@ -54,4 +54,9 @@ public class MarsRoverShould {
     void move_forward() {
         assertEquals("0,1,N", rover.execute("M"));
     }
+
+    @Test
+    void wrap_vertically() {
+        assertEquals("0,0,N", rover.execute("MMMMMMMMMM"));
+    }
 }

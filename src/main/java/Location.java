@@ -54,6 +54,9 @@ public class Location {
     }
 
     public void moveForward() {
-        coordinates.yCoordinate += 1;
+        if(coordinates.yCoordinate + 1 <= 9)
+            coordinates.yCoordinate += 1;
+        else
+            coordinates.yCoordinate = 0;
     }
 }
