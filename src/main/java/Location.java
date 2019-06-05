@@ -73,22 +73,23 @@ public class Location {
     }
 
     private void moveNorth() {
-        final int nextYCoordinate = coordinates.yCoordinate + 1;
+        final int nextYCoordinate = coordinates.incrementY();
         coordinates.yCoordinate = nextYCoordinate <= 9 ? nextYCoordinate : 0;
     }
 
     private void moveSouth() {
-        final int nextYCoordinate = coordinates.yCoordinate - 1;
+        final int nextYCoordinate = coordinates.decrementY();
         coordinates.yCoordinate = nextYCoordinate >= 0 ? nextYCoordinate : 9;
     }
 
     private void moveWest() {
-        final int nextXCoordinate = coordinates.xCoordinate - 1;
+        final int nextXCoordinate = coordinates.decrementX();
         coordinates.xCoordinate = nextXCoordinate >= 0 ? nextXCoordinate : 9;
     }
 
     private void moveEast() {
-        final int nextXCoordinate = coordinates.xCoordinate + 1;
+        final int nextXCoordinate = coordinates.incrementX();
         coordinates.xCoordinate = nextXCoordinate <= 9 ? nextXCoordinate : 0;
     }
+
 }

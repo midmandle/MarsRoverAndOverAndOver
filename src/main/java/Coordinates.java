@@ -12,4 +12,20 @@ public class Coordinates {
     Integer currentXCoordinate() {
         return xCoordinate;
     }
+
+    int incrementX() {
+        return xCoordinate + 1;
+    }
+
+    int decrementX() {
+        return xCoordinate - 1;
+    }
+
+    int decrementY() {
+        return yCoordinate - 1;
+    }
+
+    int incrementY() {
+        return yCoordinate + 1;
+    }
 }
