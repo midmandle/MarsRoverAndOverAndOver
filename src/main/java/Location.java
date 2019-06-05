@@ -69,7 +69,10 @@ public class Location {
             return;
         }
         if(direction == Compass.SOUTH){
-            coordinates.yCoordinate -= 1;
+            if(coordinates.yCoordinate - 1 >= 0)
+                coordinates.yCoordinate -= 1;
+            else
+                coordinates.yCoordinate = 9;
             return;
         }
         if(coordinates.yCoordinate + 1 <= 9)
