@@ -54,6 +54,10 @@ public class Location {
     }
 
     public void moveForward() {
+        if(direction == Compass.EAST) {
+            coordinates.xCoordinate += 1;
+            return;
+        }
         if(coordinates.yCoordinate + 1 <= 9)
             coordinates.yCoordinate += 1;
         else
