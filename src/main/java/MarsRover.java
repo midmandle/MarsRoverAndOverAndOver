@@ -1,40 +1,35 @@
 public class MarsRover {
     public static final String TURN_LEFT = "L";
     public static final String TURN_RIGHT = "R";
-    public static final String WEST = "W";
-    public static final String EAST = "E";
-    public static final String SOUTH = "S";
-    public static final String NORTH = "N";
-    private String direction;
-    private String yCoordinate = "0";
-    private String xCoordinate = "0";
+    private final Coordinates coordinates = new Coordinates();
+    private Compass direction;
 
     public String execute(String instructions) {
         if(instructions.equals(TURN_LEFT))
-            return generateLocationString(WEST);
+            return generateLocationString(Compass.WEST);
         if(instructions.equals(TURN_RIGHT))
-            return generateLocationString(EAST);
+            return generateLocationString(Compass.EAST);
         if(instructions.equals(TURN_RIGHT + TURN_RIGHT))
-            return generateLocationString(SOUTH);
+            return generateLocationString(Compass.SOUTH);
         if(instructions.equals(TURN_RIGHT + TURN_RIGHT + TURN_RIGHT))
-            return generateLocationString(WEST);
-        return generateLocationString(NORTH);
+            return generateLocationString(Compass.WEST);
+        return generateLocationString(Compass.NORTH);
     }
 
-    private String generateLocationString(String newDirection) {
+    private String generateLocationString(Compass newDirection) {
         direction = newDirection;
-        return currentXCoordinate() + "," + currentYCoordinate() + "," + currentDirection();
+        return coordinates.currentXCoordinate() + "," + coordinates.currentYCoordinate() + "," + currentDirection();
     }
 
-    private String currentDirection() {
+    private Compass currentDirection() {
         return direction;
     }
 
     private String currentYCoordinate() {
-        return yCoordinate;
+        return coordinates.currentYCoordinate();
     }
 
     private String currentXCoordinate() {
-        return xCoordinate;
+        return coordinates.currentXCoordinate();
     }
 }
