@@ -54,30 +54,49 @@ public class Location {
     }
 
     public void moveForward() {
-        if(direction == Compass.EAST) {
-            if(coordinates.xCoordinate + 1 <= 9)
-                coordinates.xCoordinate += 1;
-            else
-                coordinates.xCoordinate = 0;
-            return;
+        switch (direction){
+            case NORTH:
+                moveNorth();
+                break;
+            case EAST:
+                moveEast();
+                break;
+            case SOUTH:
+                moveSouth();
+                break;
+            case WEST:
+                moveWest();
+                break;
+            default:
+                throw new UnsupportedOperationException();
         }
-        if(direction == Compass.WEST) {
-            if(coordinates.xCoordinate - 1 >= 0)
-                coordinates.xCoordinate -= 1;
-            else
-                coordinates.xCoordinate = 9;
-            return;
-        }
-        if(direction == Compass.SOUTH){
-            if(coordinates.yCoordinate - 1 >= 0)
-                coordinates.yCoordinate -= 1;
-            else
-                coordinates.yCoordinate = 9;
-            return;
-        }
+    }
+
+    private void moveNorth() {
         if(coordinates.yCoordinate + 1 <= 9)
             coordinates.yCoordinate += 1;
         else
             coordinates.yCoordinate = 0;
+    }
+
+    private void moveSouth() {
+        if(coordinates.yCoordinate - 1 >= 0)
+            coordinates.yCoordinate -= 1;
+        else
+            coordinates.yCoordinate = 9;
+    }
+
+    private void moveWest() {
+        if(coordinates.xCoordinate - 1 >= 0)
+            coordinates.xCoordinate -= 1;
+        else
+            coordinates.xCoordinate = 9;
+    }
+
+    private void moveEast() {
+        if(coordinates.xCoordinate + 1 <= 9)
+            coordinates.xCoordinate += 1;
+        else
+            coordinates.xCoordinate = 0;
     }
 }
