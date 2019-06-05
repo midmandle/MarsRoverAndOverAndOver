@@ -2,7 +2,7 @@ public class Coordinates {
     Integer yCoordinate = 0;
     Integer xCoordinate = 0;
 
-    public Coordinates() {
+    public Coordinates(int xCoordinate, int yCoordinate) {
     }
 
     Integer currentYCoordinate() {

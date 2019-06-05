@@ -1,12 +1,12 @@
-public enum Compass {
-    WEST('W'), EAST('E'), SOUTH('S'), NORTH('N');
+public enum Instruction {
+    TURN_LEFT('L'), TURN_RIGHT('R');
     private char value;
 
     public char getValue() {
         return value;
     }
 
-    Compass(char value) {
+    Instruction(char value) {
         this.value = value;
     }
 }
