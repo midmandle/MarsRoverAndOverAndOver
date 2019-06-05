@@ -1,5 +1,5 @@
 public enum Instruction {
-    TURN_LEFT('L'), TURN_RIGHT('R');
+    TURN_LEFT('L'), TURN_RIGHT('R'), MOVE_FORWARD('M');
     private char value;
 
     public char getValue() {

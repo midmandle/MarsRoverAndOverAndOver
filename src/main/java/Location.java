@@ -52,4 +52,8 @@ public class Location {
     public String generateLocationString() {
         return coordinates.currentXCoordinate() + "," + coordinates.currentYCoordinate() + "," + currentDirection();
     }
+
+    public void moveForward() {
+        coordinates.yCoordinate += 1;
+    }
 }

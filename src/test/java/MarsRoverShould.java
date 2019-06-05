@@ -49,4 +49,9 @@ public class MarsRoverShould {
     void rotates_left(String instructions, String expectedOutput) {
         assertEquals(expectedOutput, rover.execute(instructions));
     }
+
+    @Test
+    void move_forward() {
+        assertEquals("0,1,N", rover.execute("M"));
+    }
 }

@@ -9,6 +9,9 @@ public class MarsRover {
             if(instruction == Instruction.TURN_RIGHT.getValue()) {
                 location.rotateRight();
             }
+            if(instruction == Instruction.MOVE_FORWARD.getValue()){
+                location.moveForward();
+            }
         }
         return location.generateLocationString();
     }
