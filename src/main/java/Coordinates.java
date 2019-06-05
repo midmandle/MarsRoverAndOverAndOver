@@ -1,15 +1,15 @@
 public class Coordinates {
-    String yCoordinate = "0";
-    String xCoordinate = "0";
+    Integer yCoordinate = 0;
+    Integer xCoordinate = 0;
 
     public Coordinates() {
     }
 
-    String currentYCoordinate() {
+    Integer currentYCoordinate() {
         return yCoordinate;
     }
 
-    String currentXCoordinate() {
+    Integer currentXCoordinate() {
         return xCoordinate;
     }
 }
