@@ -61,6 +61,10 @@ public class Location {
                 coordinates.xCoordinate = 0;
             return;
         }
+        if(direction == Compass.WEST) {
+            coordinates.xCoordinate -= 1;
+            return;
+        }
         if(coordinates.yCoordinate + 1 <= 9)
             coordinates.yCoordinate += 1;
         else

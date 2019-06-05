@@ -69,4 +69,9 @@ public class MarsRoverShould {
     void wraps_horizontally() {
         assertEquals("0,0,E", rover.execute("RMMMMMMMMMM"));
     }
+
+    @Test
+    void move_forward_facing_west() {
+        assertEquals("0,0,W", rover.execute("RMLLM"));
+    }
 }
