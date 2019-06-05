@@ -1,5 +1,4 @@
 public class MarsRover {
-
     private String direction;
     private String yCoordinate = "0";
     private String xCoordinate = "0";

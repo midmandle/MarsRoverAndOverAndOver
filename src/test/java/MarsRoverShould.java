@@ -33,4 +33,9 @@ public class MarsRoverShould {
     void rotate_right_three_times() {
         assertEquals("0,0,W", rover.execute("RRR"));
     }
+
+    @Test
+    void rotate_full_circle_right() {
+        assertEquals("0,0,N", rover.execute("RRRR"));
+    }
 }
