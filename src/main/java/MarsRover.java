@@ -21,15 +21,8 @@ public class MarsRover {
         return coordinates.currentXCoordinate() + "," + coordinates.currentYCoordinate() + "," + currentDirection();
     }
 
-    private Compass currentDirection() {
-        return direction;
+    private String currentDirection() {
+        return direction.getValue();
     }
 
-    private String currentYCoordinate() {
-        return coordinates.currentYCoordinate();
-    }
-
-    private String currentXCoordinate() {
-        return coordinates.currentXCoordinate();
-    }
 }
