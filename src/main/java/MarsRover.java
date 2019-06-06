@@ -3,76 +3,34 @@ public class MarsRover {
     public static final char ROTATE_RIGHT = 'R';
     public static final char ROTATE_LEFT = 'L';
     public static final char MOVE_FORWARD = 'M';
-    private final Location location = new Location();
+    private Location location;
 
     public MarsRover() {
-        location.direction = Compass.NORTH;
-        location.coordinates = new Coordinates(0, 0);
+        location = new Location();
     }
 
     public String execute(String instructions) {
-        for (char command : instructions.toCharArray()) {
-            handleCommand(command);
+        for (char instruction : instructions.toCharArray()) {
+            handleCommand(instruction);
         }
         return location.generateLocationString();
     }
 
-    private void handleCommand(char command) {
+    private void handleCommand(char instruction) {
+        Command command = generateCommand(instruction);
+        location = command.execute();
+    }
+
+    private Command generateCommand(char command) {
         switch (command) {
             case ROTATE_RIGHT:
-                rotateRight();
-                break;
+                return new RotateRightCommand(location);
             case ROTATE_LEFT:
-                rotateLeft();
-                break;
+                return new RotateLeftCommand(location);
             case MOVE_FORWARD:
-                moveForward();
-                break;
-        }
-    }
-
-    private void moveForward() {
-        if(location.direction == Compass.SOUTH) {
-            location.moveSouth();
-        } else if(location.direction == Compass.WEST) {
-            location.moveWest();
-        } else if(location.direction == Compass.EAST)
-            location.moveEast();
-        else
-            location.moveNorth();
-    }
-
-    private void rotateLeft() {
-        switch (location.direction) {
-            case NORTH:
-                location.faceWest();
-                break;
-            case WEST:
-                location.faceSouth();
-                break;
-            case SOUTH:
-                location.faceEast();
-                break;
-            case EAST:
-                location.faceNorth();
-                break;
-        }
-    }
-
-    private void rotateRight() {
-        switch (location.direction) {
-            case NORTH:
-                location.faceEast();
-                break;
-            case EAST:
-                location.faceSouth();
-                break;
-            case SOUTH:
-                location.faceWest();
-                break;
-            case WEST:
-                location.faceNorth();
-                break;
+                return new MoveForwardCommand(location);
+            default:
+                throw new UnsupportedOperationException();
         }
     }
 
