@@ -1,5 +1,8 @@
 public class MarsRover {
 
+    public static final char ROTATE_RIGHT = 'R';
+    public static final char ROTATE_LEFT = 'L';
+    public static final char MOVE_FORWARD = 'M';
     private final Coordinates coordinates;
     private Compass direction;
 
@@ -16,12 +19,17 @@ public class MarsRover {
     }
 
     private void handleCommand(char command) {
-        if (command == 'R')
-            rotateRight();
-        if(command == 'L')
-            rotateLeft();
-        if(command == 'M')
-            moveForward();
+        switch (command) {
+            case ROTATE_RIGHT:
+                rotateRight();
+                break;
+            case ROTATE_LEFT:
+                rotateLeft();
+                break;
+            case MOVE_FORWARD:
+                moveForward();
+                break;
+        }
     }
 
     private void moveForward() {
