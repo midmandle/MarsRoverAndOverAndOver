@@ -26,4 +26,9 @@ public class MarsRoverShould {
     void rotate_right_twice_to_face_south() {
         assertEquals("0,0,S", rover.execute("RR"));
     }
+
+    @Test
+    void rotate_right_three_times_to_face_west() {
+        assertEquals("0,0,W", rover.execute("RRR"));
+    }
 }
