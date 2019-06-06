@@ -42,10 +42,19 @@ public class MarsRover {
     }
 
     private void moveWest() {
-        if(coordinates.xCoordinate - 1 < 0)
-            coordinates.xCoordinate = 9;
-        else
-            coordinates.xCoordinate -= 1;
+        if(hasHitWesternEdge()) {
+            wrapAroundWesternEdge();
+        } else {
+            coordinates.decrementXCoordinate();
+        }
+    }
+
+    private boolean hasHitWesternEdge() {
+        return coordinates.xCoordinate - 1 < 0;
+    }
+
+    private void wrapAroundWesternEdge() {
+        coordinates.xCoordinate = 9;
     }
 
     private void moveEast() {

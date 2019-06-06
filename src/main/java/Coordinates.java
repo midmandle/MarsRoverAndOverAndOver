@@ -19,4 +19,8 @@ public class Coordinates {
     public void incrementXCoordinate() {
         xCoordinate += 1;
     }
+
+    void decrementXCoordinate() {
+        xCoordinate -= 1;
+    }
 }
