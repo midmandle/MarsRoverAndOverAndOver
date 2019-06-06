@@ -40,7 +40,10 @@ public class MarsRover {
     }
 
     private void moveEast() {
-        coordinates.incrementXCoordinate();
+        if(coordinates.xCoordinate + 1 > 9)
+            coordinates.xCoordinate = 0;
+        else
+            coordinates.incrementXCoordinate();
     }
 
     private void moveNorth() {
