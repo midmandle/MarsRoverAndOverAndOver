@@ -9,8 +9,7 @@ public class MarsRover {
     }
 
     public String execute(String instructions) {
-        for (char command :
-                instructions.toCharArray()) {
+        for (char command : instructions.toCharArray()) {
             if (command == 'R')
                 rotateRight();
         }
