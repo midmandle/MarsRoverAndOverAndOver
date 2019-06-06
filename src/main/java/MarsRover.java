@@ -1,44 +1,61 @@
 public class MarsRover {
 
     private final Coordinates coordinates;
-    private char direction;
+    private Compass direction;
 
     public MarsRover() {
-        direction = 'N';
+        direction = Compass.NORTH;
         coordinates = new Coordinates(0, 0);
     }
 
     public String execute(String instructions) {
         for (char command : instructions.toCharArray()) {
-            if (command == 'R')
-                rotateRight();
-            if(command == 'L')
-                rotateLeft();
-            if(command == 'M')
-                moveForward();
+            handleCommand(command);
         }
         return this.generateLocationString();
     }
 
+    private void handleCommand(char command) {
+        if (command == 'R')
+            rotateRight();
+        if(command == 'L')
+            rotateLeft();
+        if(command == 'M')
+            moveForward();
+    }
+
     private void moveForward() {
-        if(coordinates.yCoordinate + 1 > 9)
-            coordinates.yCoordinate = 0;
-        else
-            coordinates.yCoordinate += 1;
+        moveNorth();
+    }
+
+    private void moveNorth() {
+        if(hasHitNorthBoundary()) {
+            wrapAroundNorthernEdge();
+        } else {
+            coordinates.incrementYCoordinate();
+        }
+    }
+
+    private void wrapAroundNorthernEdge() {
+        coordinates.yCoordinate = 0;
+    }
+
+    private boolean hasHitNorthBoundary() {
+        return coordinates.yCoordinate + 1 > 9;
     }
 
     private void rotateLeft() {
         switch (direction) {
-            case 'N':
+            case NORTH:
                 faceWest();
                 break;
-            case 'W':
+            case WEST:
                 faceSouth();
                 break;
-            case 'S':
+            case SOUTH:
                 faceEast();
                 break;
-            case 'E':
+            case EAST:
                 faceNorth();
                 break;
         }
@@ -46,35 +63,35 @@ public class MarsRover {
 
     private void rotateRight() {
         switch (direction) {
-            case 'N':
+            case NORTH:
                 faceEast();
                 break;
-            case 'E':
+            case EAST:
                 faceSouth();
                 break;
-            case 'S':
+            case SOUTH:
                 faceWest();
                 break;
-            case 'W':
+            case WEST:
                 faceNorth();
                 break;
         }
     }
 
     private void faceNorth() {
-        this.direction = 'N';
+        this.direction = Compass.NORTH;
     }
 
     private void faceEast() {
-        this.direction = 'E';
+        this.direction = Compass.EAST;
     }
 
     private void faceSouth() {
-        this.direction = 'S';
+        this.direction = Compass.SOUTH;
     }
 
     private void faceWest() {
-        this.direction = 'W';
+        this.direction = Compass.WEST;
     }
 
     private String generateLocationString() {

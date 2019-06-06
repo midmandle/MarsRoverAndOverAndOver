@@ -11,4 +11,8 @@ public class Coordinates {
     public String toString() {
         return xCoordinate + "," + yCoordinate;
     }
+
+    void incrementYCoordinate() {
+        yCoordinate += 1;
+    }
 }
