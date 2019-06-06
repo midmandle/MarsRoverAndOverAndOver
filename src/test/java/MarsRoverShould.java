@@ -62,5 +62,8 @@ public class MarsRoverShould {
         assertEquals("0,0,N", rover.execute("MMMMMMMMMM"));
     }
 
-    
+    @Test
+    void move_east() {
+        assertEquals("1,0,E", rover.execute("RM"));
+    }
 }

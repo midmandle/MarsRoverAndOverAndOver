@@ -15,4 +15,8 @@ public class Coordinates {
     void incrementYCoordinate() {
         yCoordinate += 1;
     }
+
+    public void incrementXCoordinate() {
+        xCoordinate += 1;
+    }
 }
