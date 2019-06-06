@@ -14,8 +14,17 @@ public class MarsRover {
                 rotateRight();
             if(command == 'L')
                 rotateLeft();
+            if(command == 'M')
+                moveForward();
         }
         return this.generateLocationString();
+    }
+
+    private void moveForward() {
+        if(coordinates.yCoordinate + 1 > 9)
+            coordinates.yCoordinate = 0;
+        else
+            coordinates.yCoordinate += 1;
     }
 
     private void rotateLeft() {
