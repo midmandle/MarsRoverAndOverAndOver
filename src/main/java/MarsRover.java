@@ -33,14 +33,25 @@ public class MarsRover {
     }
 
     private void moveForward() {
-        if(direction == Compass.SOUTH)
-            coordinates.yCoordinate -= 1;
-        else if(direction == Compass.WEST) {
+        if(direction == Compass.SOUTH) {
+            moveSouth();
+        } else if(direction == Compass.WEST) {
             moveWest();
         } else if(direction == Compass.EAST)
             moveEast();
         else
             moveNorth();
+    }
+
+    private void moveSouth() {
+        if(coordinates.yCoordinate - 1 < 0)
+            coordinates.yCoordinate = 9;
+        else
+            decrementYCoordinate();
+    }
+
+    private void decrementYCoordinate() {
+        coordinates.yCoordinate -= 1;
     }
 
     private void moveWest() {
