@@ -44,10 +44,18 @@ public class MarsRover {
     }
 
     private void moveSouth() {
-        if(coordinates.yCoordinate - 1 < 0)
-            coordinates.yCoordinate = 9;
-        else
+        if(hasHitSouthernEdge()) {
+            wrapAroundSouthernEdge();
+        } else
             decrementYCoordinate();
+    }
+
+    private boolean hasHitSouthernEdge() {
+        return coordinates.yCoordinate - 1 < 0;
+    }
+
+    private void wrapAroundSouthernEdge() {
+        coordinates.yCoordinate = 9;
     }
 
     private void decrementYCoordinate() {
