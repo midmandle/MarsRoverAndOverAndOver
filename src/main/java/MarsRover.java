@@ -12,8 +12,27 @@ public class MarsRover {
         for (char command : instructions.toCharArray()) {
             if (command == 'R')
                 rotateRight();
+            if(command == 'L')
+                rotateLeft();
         }
         return this.generateLocationString();
+    }
+
+    private void rotateLeft() {
+        switch (direction) {
+            case 'N':
+                faceWest();
+                break;
+            case 'W':
+                faceSouth();
+                break;
+            case 'S':
+                faceEast();
+                break;
+            case 'E':
+                faceNorth();
+                break;
+        }
     }
 
     private void rotateRight() {

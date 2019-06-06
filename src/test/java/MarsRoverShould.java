@@ -36,4 +36,19 @@ public class MarsRoverShould {
     public void rotateRight(String expectedLocation, String instructions) {
         assertEquals(expectedLocation, rover.execute(instructions));
     }
+
+    private static Stream<Arguments> rotateLeftTests() {
+        return Stream.of(
+                Arguments.arguments("0,0,W", "L"),
+                Arguments.arguments("0,0,S", "LL"),
+                Arguments.arguments("0,0,E", "LLL"),
+                Arguments.arguments("0,0,N", "LLLL")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("rotateLeftTests")
+    public void rotateLeft(String expectedLocation, String instructions) {
+        assertEquals(expectedLocation, rover.execute(instructions));
+    }
 }
