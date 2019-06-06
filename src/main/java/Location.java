@@ -2,9 +2,9 @@ public class Location {
     Coordinates coordinates;
     Compass direction;
 
-    public Location() {
-        coordinates = new Coordinates(0,0);
-        direction = Compass.NORTH;
+    public Location(int xCoordinate, int yCoordinate, Compass direction) {
+        coordinates = new Coordinates(xCoordinate,yCoordinate);
+        this.direction = direction;
     }
 
     void moveSouth() {
@@ -13,40 +13,16 @@ public class Location {
             wrapAroundSouthernEdge();
     }
 
-    private void wrapAroundSouthernEdge() {
-        coordinates.yCoordinate = 9;
-    }
-
-    private boolean hasHitSouthernEdge() {
-        return coordinates.yCoordinate < 0;
-    }
-
     void moveWest() {
         coordinates.decrementXCoordinate();
         if (hasHitWesternEdge())
             wrapAroundWesternEdge();
     }
 
-    private void wrapAroundWesternEdge() {
-        coordinates.xCoordinate = 9;
-    }
-
-    private boolean hasHitWesternEdge() {
-        return coordinates.xCoordinate < 0;
-    }
-
     void moveEast() {
         coordinates.incrementXCoordinate();
         if (hasHitEasternEdge())
             wrapAroundEasternEdge();
-    }
-
-    private void wrapAroundEasternEdge() {
-        coordinates.xCoordinate = 0;
-    }
-
-    private boolean hasHitEasternEdge() {
-        return coordinates.xCoordinate > 9;
     }
 
     void moveNorth() {
@@ -59,8 +35,32 @@ public class Location {
         coordinates.yCoordinate = 0;
     }
 
+    private void wrapAroundEasternEdge() {
+        coordinates.xCoordinate = 0;
+    }
+
+    private void wrapAroundSouthernEdge() {
+        coordinates.yCoordinate = 9;
+    }
+
+    private void wrapAroundWesternEdge() {
+        coordinates.xCoordinate = 9;
+    }
+
     private boolean hasHitNorthBoundary() {
         return coordinates.yCoordinate > 9;
+    }
+
+    private boolean hasHitEasternEdge() {
+        return coordinates.xCoordinate > 9;
+    }
+
+    private boolean hasHitSouthernEdge() {
+        return coordinates.yCoordinate < 0;
+    }
+
+    private boolean hasHitWesternEdge() {
+        return coordinates.xCoordinate < 0;
     }
 
     void faceNorth() {

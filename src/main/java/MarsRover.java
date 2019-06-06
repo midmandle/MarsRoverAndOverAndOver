@@ -2,7 +2,7 @@ public class MarsRover {
     private Location location;
 
     public MarsRover() {
-        location = new Location();
+        location = new Location(0, 0, Compass.NORTH);
     }
 
     public String execute(String instructions) {
