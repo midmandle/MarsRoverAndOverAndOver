@@ -1,8 +1,5 @@
 import org.junit.jupiter.api.Test;
 
-import javax.sql.rowset.CachedRowSet;
-import javax.swing.*;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class MarsRoverShould {
@@ -22,5 +19,11 @@ public class MarsRoverShould {
     void rover_rotates_right_twice_to_face_south() {
         MarsRover rover = new MarsRover();
         assertEquals("0,0,S", rover.execute("RR"));
+    }
+
+    @Test
+    void rover_rotates_right_three_times_to_face_west() {
+        MarsRover rover = new MarsRover();
+        assertEquals("0,0,W", rover.execute("RRR"));
     }
 }

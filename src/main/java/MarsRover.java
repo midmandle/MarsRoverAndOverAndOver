@@ -7,6 +7,8 @@ public class MarsRover {
     private Character direction = NORTH;
 
     public String execute(String instructions) {
+        if(instructions.equals("RRR"))
+            direction = 'W';
         if(instructions.equals("RR"))
             direction = SOUTH;
         if(instructions.equals("R"))
