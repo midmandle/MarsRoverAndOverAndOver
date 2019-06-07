@@ -55,8 +55,13 @@ public class Location {
                 moveEast();
                 break;
             case WEST:
+                moveWest();
                 break;
         }
+    }
+
+    private void moveWest() {
+        coordinates.decrementX();
     }
 
     private void moveEast() {

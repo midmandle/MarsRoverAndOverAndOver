@@ -20,4 +20,8 @@ public class Coordinates {
     public void teleportToXCoordinate(int newXCoordinate) {
         xCoordinate = newXCoordinate;
     }
+
+    public void decrementX() {
+        xCoordinate -= 1;
+    }
 }

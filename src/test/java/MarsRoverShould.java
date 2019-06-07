@@ -60,7 +60,8 @@ public class MarsRoverShould {
                 Arguments.arguments("M", "0,1,N"),
                 Arguments.arguments("MMMMMMMMMM", "0,0,N"),
                 Arguments.arguments("RM", "1,0,E"),
-                Arguments.arguments("RMMMMMMMMMM", "0,0,E")
+                Arguments.arguments("RMMMMMMMMMM", "0,0,E"),
+                Arguments.arguments("RMLLM", "0,0,W")
         );
     }
 
