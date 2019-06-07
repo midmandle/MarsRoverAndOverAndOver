@@ -1,7 +1,6 @@
 public class MarsRover {
 
-    private int xCoordinate = 0;
-    private int yCoordinate = 0;
+    private final Coordinates coordinates = new Coordinates();
     private String direction = "N";
 
     public String execute(String instructions) {
@@ -10,6 +9,6 @@ public class MarsRover {
         if(instructions.equals("R"))
             direction = "E";
 
-        return xCoordinate + "," + yCoordinate + "," + direction;
+        return coordinates.xCoordinate + "," + coordinates.yCoordinate + "," + direction;
     }
 }
