@@ -3,9 +3,9 @@ public class MarsRover {
 
     public String execute(String instructions) {
         for (char instruction : instructions.toCharArray()) {
-            if (instruction == Instruction.TURN_RIGHT.getValue())
+            if (Instruction.isTurnRight(instruction))
                 location.rotateRight();
-            if(instruction == Instruction.TURN_LEFT.getValue())
+            if(Instruction.isTurnLeft(instruction))
                 location.rotateLeft();
         }
         return location.generateLocationString();
