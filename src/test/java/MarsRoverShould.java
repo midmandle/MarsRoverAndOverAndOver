@@ -54,4 +54,9 @@ public class MarsRoverShould {
     public void turn_left(String instructions, String expectedLocation) {
         assertEquals(expectedLocation, rover.execute(instructions));
     }
+
+    @Test
+    void move_north_when_facing_that_direction() {
+        assertEquals("0,1,N", rover.execute("M"));
+    }
 }

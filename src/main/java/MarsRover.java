@@ -7,6 +7,8 @@ public class MarsRover {
                 location.rotateRight();
             if(Instruction.isTurnLeft(instruction))
                 location.rotateLeft();
+            if(Instruction.isMoveForward(instruction))
+                location.moveForward();
         }
         return location.generateLocationString();
     }

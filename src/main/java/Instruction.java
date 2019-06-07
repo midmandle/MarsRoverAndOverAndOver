@@ -1,5 +1,5 @@
 public enum Instruction {
-    TURN_RIGHT('R'), TURN_LEFT('L');
+    TURN_RIGHT('R'), TURN_LEFT('L'), MOVE_FORWARD('M');
     private char value;
 
     public static boolean isTurnRight(char instruction) {
@@ -8,6 +8,10 @@ public enum Instruction {
 
     public static boolean isTurnLeft(char instruction) {
         return instruction == TURN_LEFT.getValue();
+    }
+
+    public static boolean isMoveForward(char instruction) {
+        return instruction == MOVE_FORWARD.getValue();
     }
 
     public char getValue() {

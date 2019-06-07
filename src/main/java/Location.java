@@ -43,4 +43,18 @@ public class Location {
                 break;
         }
     }
+
+    public void moveForward() {
+        switch (direction) {
+            case NORTH:
+                coordinates.incrementY();
+                break;
+            case SOUTH:
+                break;
+            case EAST:
+                break;
+            case WEST:
+                break;
+        }
+    }
 }

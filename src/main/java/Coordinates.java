@@ -4,4 +4,8 @@ public class Coordinates {
 
     public Coordinates() {
     }
+
+    public void incrementY() {
+        yCoordinate += 1;
+    }
 }
