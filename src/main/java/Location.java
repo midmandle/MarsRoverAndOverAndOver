@@ -52,11 +52,18 @@ public class Location {
             case SOUTH:
                 break;
             case EAST:
-                coordinates.incrementX();
+                moveEast();
                 break;
             case WEST:
                 break;
         }
+    }
+
+    private void moveEast() {
+        if(coordinates.xCoordinate + 1 > 9)
+            coordinates.teleportToXCoordinate(0);
+        else
+            coordinates.incrementX();
     }
 
     private void moveNorth() {
