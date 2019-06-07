@@ -26,4 +26,21 @@ public class Location {
                 break;
         }
     }
+
+    public void rotateLeft() {
+        switch (direction) {
+            case NORTH:
+                direction = Compass.WEST;
+                break;
+            case SOUTH:
+                direction = Compass.EAST;
+                break;
+            case EAST:
+                direction = Compass.NORTH;
+                break;
+            case WEST:
+                direction = Compass.SOUTH;
+                break;
+        }
+    }
 }
