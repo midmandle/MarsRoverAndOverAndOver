@@ -61,7 +61,10 @@ public class Location {
     }
 
     private void moveWest() {
-        coordinates.decrementX();
+        if(coordinates.xCoordinate - 1 < 0)
+            coordinates.teleportToXCoordinate(9);
+        else
+            coordinates.decrementX();
     }
 
     private void moveEast() {
