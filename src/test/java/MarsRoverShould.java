@@ -1,5 +1,10 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -17,18 +22,19 @@ public class MarsRoverShould {
         assertEquals("0,0,N", rover.execute(""));
     }
 
-    @Test
-    void rotate_right_to_face_east() {
-        assertEquals("0,0,E", rover.execute("R"));
+    private static Stream<Arguments> rightTurnTests() {
+        return Stream.of(
+                Arguments.arguments("R", "0,0,E"),
+                Arguments.arguments("RR", "0,0,S"),
+                Arguments.arguments("RRR", "0,0,W"),
+                Arguments.arguments("RRRR", "0,0,N")
+
+        );
     }
 
-    @Test
-    void rover_rotates_right_twice_to_face_south() {
-        assertEquals("0,0,S", rover.execute("RR"));
-    }
-
-    @Test
-    void rover_rotates_right_three_times_to_face_west() {
-        assertEquals("0,0,W", rover.execute("RRR"));
+    @ParameterizedTest
+    @MethodSource("rightTurnTests")
+    public void turn_right(String instructions, String expectedLocation) {
+        assertEquals(expectedLocation, rover.execute(instructions));
     }
 }
