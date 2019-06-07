@@ -1,15 +1,19 @@
 public class MarsRover {
 
+    public static final char TURN_RIGHT = 'R';
     private final Coordinates coordinates = new Coordinates();
     private Compass direction = Compass.NORTH;
 
     public String execute(String instructions) {
-        for (char instruction :
-                instructions.toCharArray()) {
-            if (instruction == 'R') {
+        for (char instruction : instructions.toCharArray()) {
+            if (instruction == TURN_RIGHT) {
                 rotateRight();
             }
         }
+        return generateLocationString();
+    }
+
+    private String generateLocationString() {
         return coordinates.xCoordinate + "," + coordinates.yCoordinate + "," + direction;
     }
 
