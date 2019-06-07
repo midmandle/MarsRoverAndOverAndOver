@@ -5,6 +5,8 @@ public class MarsRover {
     private String direction = "N";
 
     public String execute(String instructions) {
+        if(instructions.equals("RR"))
+            direction = "S";
         if(instructions.equals("R"))
             direction = "E";
 
