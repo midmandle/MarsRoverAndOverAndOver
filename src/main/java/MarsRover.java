@@ -4,13 +4,24 @@ public class MarsRover {
     private Compass direction = Compass.NORTH;
 
     public String execute(String instructions) {
-        if(instructions.equals("RRR"))
-            direction = Compass.WEST;
-        if(instructions.equals("RR"))
-            direction = Compass.SOUTH;
-        if(instructions.equals("R"))
-            direction = Compass.EAST;
-
+        for (char instruction :
+                instructions.toCharArray()) {
+            if (instruction == 'R')
+                switch (direction) {
+                    case NORTH:
+                        direction = Compass.EAST;
+                        break;
+                    case SOUTH:
+                        direction = Compass.WEST;
+                        break;
+                    case EAST:
+                        direction = Compass.SOUTH;
+                        break;
+                    case WEST:
+                        direction = Compass.NORTH;
+                        break;
+                }
+        }
         return coordinates.xCoordinate + "," + coordinates.yCoordinate + "," + direction;
     }
 }
