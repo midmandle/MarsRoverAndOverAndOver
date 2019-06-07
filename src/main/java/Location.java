@@ -47,10 +47,7 @@ public class Location {
     public void moveForward() {
         switch (direction) {
             case NORTH:
-                if(coordinates.yCoordinate + 1 > 9)
-                    coordinates.teleportToYCoordinate(0);
-                else
-                    coordinates.incrementY();
+                moveNorth();
                 break;
             case SOUTH:
                 break;
@@ -59,5 +56,12 @@ public class Location {
             case WEST:
                 break;
         }
+    }
+
+    private void moveNorth() {
+        if(coordinates.yCoordinate + 1 > 9)
+            coordinates.teleportToYCoordinate(0);
+        else
+            coordinates.incrementY();
     }
 }
