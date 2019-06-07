@@ -52,6 +52,7 @@ public class Location {
             case SOUTH:
                 break;
             case EAST:
+                coordinates.incrementX();
                 break;
             case WEST:
                 break;

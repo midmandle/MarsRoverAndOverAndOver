@@ -12,4 +12,8 @@ public class Coordinates {
     public void teleportToYCoordinate(int newYCoordinate) {
         yCoordinate = newYCoordinate;
     }
+
+    public void incrementX() {
+        xCoordinate += 1;
+    }
 }
