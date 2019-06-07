@@ -24,4 +24,8 @@ public class Coordinates {
     public void decrementX() {
         xCoordinate -= 1;
     }
+
+    public void decrementY() {
+        yCoordinate -= 1;
+    }
 }

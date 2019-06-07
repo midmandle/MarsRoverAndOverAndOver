@@ -50,6 +50,7 @@ public class Location {
                 moveNorth();
                 break;
             case SOUTH:
+                moveSouth();
                 break;
             case EAST:
                 moveEast();
@@ -58,6 +59,10 @@ public class Location {
                 moveWest();
                 break;
         }
+    }
+
+    private void moveSouth() {
+        coordinates.decrementY();
     }
 
     private void moveWest() {
