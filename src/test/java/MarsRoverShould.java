@@ -55,23 +55,18 @@ public class MarsRoverShould {
         assertEquals(expectedLocation, rover.execute(instructions));
     }
 
-    @Test
-    void move_north_when_facing_that_direction() {
-        assertEquals("0,1,N", rover.execute("M"));
+    private static Stream<Arguments> moveAroundMapTests() {
+        return Stream.of(
+                Arguments.arguments("M", "0,1,N"),
+                Arguments.arguments("MMMMMMMMMM", "0,0,N"),
+                Arguments.arguments("RM", "1,0,E"),
+                Arguments.arguments("RMMMMMMMMMM", "0,0,E")
+        );
     }
 
-    @Test
-    void wrap_at_northern_edge() {
-        assertEquals("0,0,N", rover.execute("MMMMMMMMMM"));
-    }
-
-    @Test
-    void move_east_when_facing_that_direction() {
-        assertEquals("1,0,E", rover.execute("RM"));
-    }
-
-    @Test
-    void wrap_at_eastern_edge() {
-        assertEquals("0,0,E", rover.execute("RMMMMMMMMMM"));
+    @ParameterizedTest
+    @MethodSource("moveAroundMapTests")
+    public void move_around(String instructions, String expectedLocation) {
+        assertEquals(expectedLocation, rover.execute(instructions));
     }
 }
