@@ -8,4 +8,8 @@ public class Coordinates {
     public void incrementY() {
         yCoordinate += 1;
     }
+
+    public void teleportToYCoordinate(int newYCoordinate) {
+        yCoordinate = newYCoordinate;
+    }
 }
