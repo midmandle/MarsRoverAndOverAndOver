@@ -1,5 +1,13 @@
 public class MarsRover {
+
+    private String xCoordinate;
+    private String yCoordinate;
+    private String direction;
+
     public String execute(String instructions) {
-        return "0,0,N";
+        xCoordinate = "0";
+        yCoordinate = "0";
+        direction = "N";
+        return xCoordinate + "," + yCoordinate + "," + direction;
     }
 }
